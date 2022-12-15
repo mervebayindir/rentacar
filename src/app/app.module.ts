@@ -10,6 +10,7 @@ import { NaviComponent } from './components/navi/navi.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { CustomerComponent } from './components/customer/customer.component';
 import { ColorComponent } from './components/color/color.component';
+import { RentalComponent } from './components/rental/rental.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ColorComponent } from './components/color/color.component';
     BrandComponent,
     NaviComponent,
     CustomerComponent,
-    ColorComponent
+    ColorComponent,
+    RentalComponent,
   ],
   imports: [
     BrowserModule,
