@@ -12,6 +12,7 @@ export class CustomerComponent {
   customers:Customer[]=[];
   dataLoaded=false
   constructor(private customerService:CustomerService){}
+
   ngOnInit(): void{
     this.getCustomers();
   }

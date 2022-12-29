@@ -1,46 +1,36 @@
-<!-- <app-navi></app-navi> -->
-<div class="container-fluid">
-    <div class="row">
-      <div class="col-md-3" style="margin-top: 20px;">
-        <app-brand></app-brand>
-       <!--  <app-filter></app-filter> -->
-        <div class="card" style="margin-bottom: 15px; margin-top: 20px;">
-          <div class="card-header text-center" for="filterText">Araba Markası bul</div>
-          <div class="card-body">
-            <input type="text" class="form-control" id="filterText" placeholder="Arama ifadesi giriniz"> <!-- [(ngModel)]="filterText" (ngModelChange)="changeFilterTextSize(filterText)" -->
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-9">
-        <div *ngIf="dataLoaded==false" class="spinner-border" role="status" style="margin-top: 35px; margin-left: 15px;">
-          <span class="visually-hidden">Loading...</span>
-        </div>
-        <div  *ngIf="dataLoaded==true" class="row" id="ads" >
-          <div  class="col-12 col-sm-11 col-md-9 col-lg-5 col-xl-4 "><!-- *ngFor="let car of cars" -->
-            <div class="card mb-4 mr-4">
-              <div class="card rounded" >
-                <div class="card-image">
-                  <span class="card-notify-badge">Yeni</span>
-                  <span class="card-notify-year"><!-- {{car.modelYear}} --></span>
-                  <img class="img-fluid"  style="width: 100%;height: 173px;" /><!-- src="{{apiUrl}}{{car.imagePath}}" -->
-                </div>
-                <div class="card-image-overlay m-auto">
-                  <span class="card-detail-badge">Sıfır</span>
-                  <span class="card-detail-badge"><!-- {{car.dailyPrice}} --> <fa-icon [icon]="faLira"></fa-icon></span>
-                  <span class="card-detail-badge"><!-- {{car.colorName}} --></span>
-                </div>
-                <div class="card-body text-center">
-                  <div class="ad-title text-center">
-                    <h5><!-- {{car.brandName}} {{car.modelName}} --></h5>
-                  </div>
-                  <button type="button"  class="ad-btn" style="border-radius: 80px; width: 50%"><!-- routerLink="/car/details/{{car.id}}" -->Detaylar</button>
-                </div>
-              </div>
-            </div>
-            <br>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div *ngIf="dataLoaded==false" class="spinner-border text-dark" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="mb-3">
+  <label for="filterText" class="form-label">Ürün ara</label>
+  <input type="text" class="form-control" id="filterText" placeholder="Ürünü giriniz"><!-- [(ngModel)]="filterText" -->
+</div>
+<!-- <div *ngIf="filterText.length>2" class="alert alert-primary">
+  {{filterText}} aradınız.
+</div> -->
+<table *ngIf="dataLoaded==true" class="table table-striped table-sm">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Araba Adı</th>
+      <th>Marka</th>
+      <th>Renk</th>
+      <th>Model Yılı</th>
+      <th>Günlük Fiyat</th>
+      <th>Açıklama</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr routerLink="/cardetail/{{car.carId}}" *ngFor="let car of cars "><!-- | filterPipe:filterText -->
+      <td>{{car.carId}}</td>
+      <td>{{car.carName | uppercase}}</td>
+      <td>{{car.brandName}}</td>
+      <td>{{car.colorName}}</td>
+      <td>{{car.modelYear}}</td>
+      <td>{{car.dailyPrice}}</td>
+      <td>{{car.description}}</td>
+      <td><button (click)="gotoCarDetailPage(car.carId)" type="button" class="btn btn-primary">İncele</button></td><!--  -->
+    </tr>
+  </tbody>
+</table>

@@ -1,5 +1,6 @@
 export interface Car{
     carId:number;
+    carName:string;
     brandId:number;
     brandName:string;
     colorId:number;
@@ -8,7 +9,6 @@ export interface Car{
     modelYear:number;
     dailyPrice:number;
     description:string;
-    imegeId:number;
     imagePath:string;
     date:Date;
     findeksScore:number;

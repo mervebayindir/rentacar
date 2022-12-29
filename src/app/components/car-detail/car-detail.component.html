@@ -1,0 +1,63 @@
+<div class="container" *ngIf="carDetail">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="card" style="margin-bottom: 15px;">
+                <div class="card-body">
+                    <img *ngIf="carImage;else otherContent" src="{{apiUrl}}{{carImage.imagePath}}" class="card-img-top"
+                        alt="..." />
+                    <ng-template #otherContent>
+                        <div class="picsum-img-wrapper">
+                            <img src="{{defaultImagePath}}" class="card-img-top" alt="..." />
+                        </div>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="row">
+                <div class="card"
+                    style="margin-bottom: 15px; margin-right: 15px; margin-left: 15px; width: 100%; height: auto;">
+
+                    <div>
+                        <div>
+                            <div class="card-header">
+                                <b>{{carDetail.brandName}} {{carDetail.modelYear}}</b>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text"><b>Araba: </b> {{carDetail.carName}}</p>
+                                <hr>
+                                <p class="card-text"><b>Marka: </b> {{carDetail.brandName}}</p>
+                                <hr>
+                                <p class="card-text"><b>Renk: </b>{{carDetail.colorName}}</p>
+                                <hr>
+                                <p class="card-text"><b>Model: </b>{{carDetail.modelYear}}</p>
+                                <hr>
+                                <p class="card-text"><b>Not: </b> {{carDetail.description}}</p>
+                                <hr>
+                                <p class="card-text"><b>Fiyat: </b> {{carDetail.dailyPrice}}
+                                    <!--  <fa-icon [icon]="faLira"></fa-icon> </p> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div *ngIf="carDetail">
+    <div class="card" style="width: 18rem;" >
+        <img *ngIf="carImage;else otherContent" src="{{apiUrl}}{{carImage.imagePath}}" class="card-img-top" alt="..."/>
+        <img *ngIf="!carImage;else otherContent" src="{{apiUrl}}{{carImage.imagePath}}" class="card-img-top" alt="..."/>  burası kapalı
+        <ng-template #otherContent>
+            <img src="{{defaultImagePath}}" class="card-img-top" alt="..."/>
+        </ng-template>
+        <div class="card-body" >
+            <h4 class="card-title">{{carDetail.carName}}</h4>
+            <p class="card-text">{{carDetail.brandName}}</p>
+            <p class="card-text">{{carDetail.colorName}}</p>
+            <p class="card-text">{{carDetail.modelYear}}</p>
+            <p class="card-text">{{carDetail.dailyPrice}}</p>
+        </div>
+    </div>
+</div> -->

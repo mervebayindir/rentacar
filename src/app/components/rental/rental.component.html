@@ -1,1 +1,21 @@
-<p>rental works!</p>
+<table *ngIf="dataLoaded==true" class="table table-striped table-sm">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Marka</th>
+      <th>Kullanıcı Adı</th>
+      <th>Kiralama Başlangıç Tarihi</th>
+      <th>Kiralama Bitiş Tarihi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let rental of rentals "><!-- | filterPipe:filterText -->
+      <td>{{rental.rentalId}}</td>
+      <td>{{rental.brandName}}</td>
+      <td>{{rental.fullName}}</td>
+      <td>{{rental.rentDate}}</td>
+      <td>{{rental.returnDate}}</td>
+      <!-- <td><button (click)="addToCart(product)" type="button" class="btn btn-primary">Sepete ekle</button></td> -->
+    </tr>
+  </tbody>
+</table>

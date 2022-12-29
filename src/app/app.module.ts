@@ -11,6 +11,7 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { CustomerComponent } from './components/customer/customer.component';
 import { ColorComponent } from './components/color/color.component';
 import { RentalComponent } from './components/rental/rental.component';
+import { CarDetailComponent } from './components/car-detail/car-detail.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { RentalComponent } from './components/rental/rental.component';
     CustomerComponent,
     ColorComponent,
     RentalComponent,
+    CarDetailComponent,
   ],
   imports: [
     BrowserModule,
