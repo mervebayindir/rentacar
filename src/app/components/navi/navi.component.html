@@ -1,4 +1,6 @@
-<nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
+<div class="header-container">
+  <div class="header">
+    <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" ><!-- routerLink="" --> <i class="fa fa-car"></i> Rent A Car</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -13,12 +15,13 @@
           </a>
         </li>
   
-        <li class="nav-item">
-          <a class="nav-link" ><!-- routerLink="/cart" -->
+        <!-- <li class="nav-item">
+          <a class="nav-link" routerLink="/cart">
             <i class="fa fa-shopping-cart"></i>
             Sepete Git
           </a>
-        </li>
+        </li> -->
+        <app-cart-summary></app-cart-summary>
   
         <li class="nav-item" ><!-- *ngIf="check==false" -->
           <a class="nav-link"><!--  routerLink="/login" -->
@@ -59,3 +62,5 @@
       </ul>
     </div>
   </nav>
+  </div>
+</div>

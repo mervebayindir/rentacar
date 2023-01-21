@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Car } from 'src/app/models/car';
 import { CarDetail } from 'src/app/models/carDetail';
 import { CarImage } from 'src/app/models/carImage';
 import { CarImageService } from 'src/app/services/car-image.service';
@@ -11,7 +12,7 @@ import { CarService } from 'src/app/services/car.service';
   styleUrls: ['./car-detail.component.css']
 })
 export class CarDetailComponent {
-
+  carDetails:CarDetail[]=[]
   carDetail:CarDetail
   carImage:CarImage
   dataLoaded=false;
@@ -45,6 +46,9 @@ export class CarDetailComponent {
   getImagePath(carImage: CarImage):string {
     let url:string="https://localhost:44315/" + carImage.imagePath
     return  url;
+  }
+  addToCart(car:Car){
+    console.log(car)
   }
 }
 

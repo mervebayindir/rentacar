@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 d-flex">
+      <select class="form-select" id="floatingSelect" aria-label="Default select example">
+        <option selected value="0">Tüm Markalar</option>
+        <option *ngFor="let brand of brands" [value]="brand.brandId">{{brand.brandName}}</option>
+      </select>
+      <div class="col-md-4 mx-auto">
+      <a class="btn btn-info w-100">Filtrele</a><!-- (click)="applyFilter()" *ngFor="let brand of brands | brandFilter:brandfilterText"(click)="setCurrentBrand(brand)" 
+            routerLink="/cars/brand/{{brand.brandId}}" [class]="getCurrentBrandClass(brand)"-->
+      </div>
+    </div>
+  <div class="col-md-6 d-flex">
+    <select class="form-select" id="floatingSelect" aria-label="Default select example">
+      <option selected value="undefined">Tüm Renkler</option>
+      <option *ngFor="let color of colors" [value]="color.colorId">{{color.colorName }}
+      </option>
+    </select>
+    <div class="col-md-4 mx-auto">
+      <a (click)="gotoColorIdPage()"
+        class="btn btn-info w-100">Filtrele</a><!--  -->
+    </div>
+  </div>
+</div>
+</div>

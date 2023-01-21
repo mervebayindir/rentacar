@@ -10,13 +10,13 @@ import { Color } from '../models/color';
 })
 export class ColorService {
 
-  apiUrl="https://localhost:44315/api/";
+  apiUrl="https://localhost:44315/api/colors/";
 
   constructor(private httpClient:HttpClient) { }
 
   getColors(): Observable<ListResponseModel<Color>>{
     this.httpClient.get<ListResponseModel<Color>>
-    let newPath = this.apiUrl + "colors/getall"
+    let newPath = this.apiUrl + "getall"
     return this.httpClient.get<ListResponseModel<Color>>(newPath)
   }
 }

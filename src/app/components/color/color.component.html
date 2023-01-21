@@ -1,25 +1,27 @@
-<!-- <select class="form-select" aria-label="Default select example">
-  <option *ngFor="let color of colors" selected>{{color.colorName}}</option>
-  <option value="1">One</option>
-  <option value="2">Two</option>
-  <option value="3">Three</option>
-</select>
- -->
 
-
- <ul class="list-group">
+ <br>
+ <ul class="list-group"> 
   <li [class]="getAllColorClass()" routerLink="/cars" class="list-group-item">Tüm Renkler</li>
   <li (click)="setCurrentColor(color)" routerLink="/cars/color/{{color.colorId}}" 
-  [class]="getCurrentColorClass(color)" *ngFor="let color of colors">{{color.colorName}}</li>
+  [class]="getCurrentColorClass(color)" *ngFor="let color of colors | colorFilter:colorfilterText">{{color.colorName}}</li>
 </ul>
- <h5 *ngIf="currentColor">{{currentColor.colorName}} seçtiniz</h5> 
+ <!-- <h5 *ngIf="currentColor">{{currentColor.colorName}} seçtiniz</h5>  -->
+ <!-- <h5>Renk</h5>
 
-
-
- <!-- <ul class="list-group">
-  <li  [class]="getAllBrandClass()" routerLink="/cars">Tüm Markalar</li>
-  <li (click)="setCurrentBrand(brand)" routerLink="/cars/brand/{{brand.brandId}}" 
-  [class]="getCurrentBrandClass(brand)" *ngFor="let brand of brands">
-      {{brand.brandName}}</li>
-</ul>
-<h5 *ngIf="currentBrand">{{currentBrand.brandName}} seçtiniz</h5>  -->
+<br>
+<div class="card">
+ 
+  <div *ngIf="colorfilterText.length>1" class="alert alert-primary">
+    {{colorfilterText}} aradınız.
+  </div>
+  <select class="form-select" id="floatingSelect" aria-label="Default select example">
+    <option selected [class]="getAllColorClass()">Tüm Renkler</option>
+    <option [value]="color.colorId" *ngFor="let color of colors | colorFilter:colorfilterText">{{color.colorName}}
+    </option>
+  </select>
+  <br>
+  <div class="col-6 mx-auto">
+    <button type="button" class="btn btn-info w-100">Filtrele</button>
+  </div>
+  <br>
+</div> -->

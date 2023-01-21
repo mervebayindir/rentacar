@@ -1,3 +1,4 @@
+<br>
 <div class="container" *ngIf="carDetail">
     <div class="row">
         <div class="col-md-5">
@@ -23,9 +24,11 @@
                             <div class="card-header">
                                 <b>{{carDetail.brandName}} {{carDetail.modelYear}}</b>
                             </div>
-                            <div class="card-body">
-                                <p class="card-text"><b>Araba: </b> {{carDetail.carName}}</p>
-                                <hr>
+                            <br>
+                            <div class="" >
+
+                                <p class="card-text"><b>Araba: </b> {{carDetail.carName | uppercase}}</p>
+                                <hr/>
                                 <p class="card-text"><b>Marka: </b> {{carDetail.brandName}}</p>
                                 <hr>
                                 <p class="card-text"><b>Renk: </b>{{carDetail.colorName}}</p>
@@ -34,8 +37,10 @@
                                 <hr>
                                 <p class="card-text"><b>Not: </b> {{carDetail.description}}</p>
                                 <hr>
-                                <p class="card-text"><b>Fiyat: </b> {{carDetail.dailyPrice}}
-                                    <!--  <fa-icon [icon]="faLira"></fa-icon> </p> -->
+                                <p class="card-text"><b>Fiyat: </b> {{carDetail.dailyPrice}}</p>
+                                <hr>
+                                <a  type="button"
+                                    class="btn btn-primary">Kirala</a><!--  (click)="addToCart(car)"-->
                             </div>
                         </div>
                     </div>

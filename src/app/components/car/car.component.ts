@@ -5,6 +5,8 @@ import { Car } from 'src/app/models/car';
 import { CarService } from 'src/app/services/car.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CarDetail } from 'src/app/models/carDetail';
+import { ToastrService } from 'ngx-toastr';
+import { CartService } from 'src/app/services/cart.service';
 library.add(faLiraSign);
 
 @Component({
@@ -17,13 +19,18 @@ export class CarComponent {
   cars:Car[]=[];
   carDetail:CarDetail[]
   dataLoaded=false;
+  carfilterText="";
   faLira = faLiraSign;
   constructor(
     private carService:CarService,
     private activatedRoute:ActivatedRoute,
-    private routerService:Router){}
+    private toastrService:ToastrService,
+    private cartService:CartService) {}
 
   ngOnInit():void{
+    this.load()
+  }
+  load(){
     this.activatedRoute.params.subscribe(params=>{ //activatedroute filtreleme işleminde url yonlendırmesı yapar
       
       if (params["colorId"] && params["brandId"]) {
@@ -73,8 +80,13 @@ export class CarComponent {
       this.dataLoaded = true;
     })
   }
-  gotoCarDetailPage(carId:number){
+ /*  gotoCarDetailPage(carId:number){
     this.routerService.navigate([`/cardetail/${carId}`])
+  } */
+  addToCart(car:Car){
+    if(car.carId)
+    this.toastrService.success("Sepete eklendi", car.carName)
+    this.cartService.addToCart(car);
+    console.log(car)
   }
-
 }

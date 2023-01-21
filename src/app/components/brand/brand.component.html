@@ -1,11 +1,27 @@
-<!-- <ul class="list-group">
-    <li>Tüm Ürünler</li>
-    <li *ngFor="let brand of brands">{{brand.brandName}}</li>
-</ul> -->
+<br>
 <ul class="list-group">
-    <li  [class]="getAllBrandClass()" routerLink="/cars">Tüm Markalar</li>
-    <li (click)="setCurrentBrand(brand)" routerLink="/cars/brand/{{brand.brandId}}" 
-    [class]="getCurrentBrandClass(brand)" *ngFor="let brand of brands">
+    <li [class]="getAllBrandClass()" routerLink="/cars">Tüm Markalar</li>
+    <li (click)="setCurrentBrand(brand)" routerLink="/cars/brand/{{brand.brandId}}"
+        [class]="getCurrentBrandClass(brand)" *ngFor="let brand of brands | brandFilter:brandfilterText">
         {{brand.brandName}}</li>
-  </ul>
- <h5 *ngIf="currentBrand">{{currentBrand.brandName}} seçtiniz</h5> 
+</ul>
+<!-- <h5 *ngIf="currentBrand">{{currentBrand.brandName}} seçtiniz</h5>
+ -->
+
+<!-- <h5>Marka</h5>
+<div class="card">
+  
+    <div *ngIf="brandfilterText.length>2" class="alert alert-primary">
+        {{brandfilterText}} aradınız.
+    </div>
+    <select class="form-select" id="floatingSelect" aria-label="Default select example">
+        <option selected [class]="getAllBrandClass()" routerLink="/cars">Tüm Markalar</option>
+        <option [value]="brand.brandId" *ngFor="let brand of brands | brandFilter:brandfilterText">{{brand.brandName}}</option>
+    </select>
+    <br>
+    <div class="col-6 mx-auto" ng-repeate="item in colors | filter:brandfilterText">
+        <a  class="btn btn-info w-100">Apply</a>(click)="applyFilter()"
+    </div>
+    <br>
+</div>
+<br> -->
