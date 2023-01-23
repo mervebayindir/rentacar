@@ -3,7 +3,7 @@
  <ul class="list-group"> 
   <li [class]="getAllColorClass()" routerLink="/cars" class="list-group-item">Tüm Renkler</li>
   <li (click)="setCurrentColor(color)" routerLink="/cars/color/{{color.colorId}}" 
-  [class]="getCurrentColorClass(color)" *ngFor="let color of colors | colorFilter:colorfilterText">{{color.colorName}}</li>
+  [class]="getCurrentColorClass(color)" *ngFor="let color of colors">{{color.colorName}}</li>
 </ul>
  <!-- <h5 *ngIf="currentColor">{{currentColor.colorName}} seçtiniz</h5>  -->
  <!-- <h5>Renk</h5>

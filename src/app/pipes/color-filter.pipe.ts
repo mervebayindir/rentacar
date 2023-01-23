@@ -6,9 +6,9 @@ import { Color } from '../models/color';
 })
 export class ColorFilterPipe implements PipeTransform {
 
-  transform(value: Color[], filterText: string): Color[] {
-  filterText = filterText? filterText.toLocaleLowerCase():""
-    return filterText?value
+  transform(value: Color[], filterText: string): Color[] {  
+    filterText = filterText? filterText.toLocaleLowerCase():""
+     return filterText?value
     .filter((c:Color)=> c.colorName.toLocaleLowerCase().indexOf(filterText)!==-1):value;
    
   }

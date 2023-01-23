@@ -31,7 +31,7 @@
       <td>{{car.brandName}}</td>
       <td>{{car.colorName}}</td>
       <td>{{car.modelYear}}</td>
-      <td>{{car.dailyPrice |currency:"₺"}}</td>
+      <td>{{car.dailyPrice | currency:"₺"}}</td>
       <td>{{car.description}}</td>
       <td><button routerLink="/cars/carDetail/{{car.carId}}" type="button" class="btn btn-primary">İncele</button></td>
       <td><a (click)="addToCart(car)" type="button" class="btn btn-primary">Kirala</a></td>

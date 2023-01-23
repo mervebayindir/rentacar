@@ -5,8 +5,8 @@
     </a>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <li *ngFor="let cartItem of cartItems"><a class="dropdown-item" >{{cartItem.car.carName}}
-            <span class="badge text-bg-secondary"><!-- {{cartItem.quantity}} --> </span>
-            <span class="badge text-bg-secondary" ><!-- (click)="removeFromCart(cartItem.product)" --> Sil</span></a>
+            <span class="badge text-bg-secondary">{{cartItem.quantity}} </span>
+            <span class="badge text-bg-secondary" ><!-- (click)="removeFromCart(cartItem.car)" --> Sil</span></a>
         </li>
         <li>
             <hr class="dropdown-divider">
@@ -16,7 +16,7 @@
 </li>
 
 
-<div class="dropdown dropleft">
+<!-- <div class="dropdown dropleft">
     <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <i class="fa" style="font-size:24px">&#xf07a;</i>
       <span class='badge badge-warning' id='lblCartCount'> {{cartItems.length}} </span>
@@ -37,4 +37,4 @@
       </a>
       <a class="dropdown-item"> <b>View cart</b> </a>
     </div>
-  </div>
+  </div> -->

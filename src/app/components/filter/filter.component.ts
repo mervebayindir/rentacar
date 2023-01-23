@@ -6,7 +6,6 @@ import { Color } from 'src/app/models/color';
 import { BrandService } from 'src/app/services/brand.service';
 import { CarService } from 'src/app/services/car.service';
 import { ColorService } from 'src/app/services/color.service';
-import { RouterService } from 'src/app/services/router.service';
 
 @Component({
   selector: 'app-filter',
@@ -30,8 +29,7 @@ export class FilterComponent {
     private colorService:ColorService,
     private brandService:BrandService,
     private carService:CarService,
-    private routerService:RouterService,
-    private activatedRoute:ActivatedRoute){}
+    private router:Router,){}
 
     ngOnInit():void{ 
      this.getBrands();
@@ -55,7 +53,15 @@ export class FilterComponent {
         this.dataLoaded=true
       })
     }
-    gotoColorIdPage(){
-      this.routerService.gotoColorIdPage(this.currentColor)
+    applyFilter() {
+      if(this.brandId != null && this.colorId != null) {
+        this.router.navigate(['/cars/filter/' + this.brandId + "/" + this.colorId])
+      }
+      else if(this.colorId != null) {
+        this.router.navigate(['/cars/filterColor/' + this.colorId])
+      }
+      else if(this.brandId != null) {
+        this.router.navigate(['/cars/filterBrand/' + this.brandId])
+      }
     }
 }
